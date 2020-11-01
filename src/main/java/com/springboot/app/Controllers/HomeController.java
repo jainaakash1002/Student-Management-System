@@ -57,7 +57,7 @@ public class HomeController {
 			System.out.println("start!");
 			return "Studentlogin";
 		} else {
-			int userId = student.getId();
+			String userId = student.getId();
 			String Password = student.getPassword();
 			Student s = stdrepo.findStudentByid(userId);
 			if(s==null) {

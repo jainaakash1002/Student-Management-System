@@ -14,8 +14,8 @@ public class Student {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@NotNull(message="Please enter ID")
-	private int id;	
+	@NotEmpty(message="Please enter ID")
+	private String id;	
 	private String studentName;
 	private String gender;
 	@DateTimeFormat(iso=ISO.DATE)
@@ -35,11 +35,11 @@ public class Student {
 	@OneToMany(mappedBy="student")
 	List<StudentCourse> std_course;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -131,7 +131,7 @@ public class Student {
 		this.sessionid = sessionid;
 	}
 
-	public Student(int id, String studentName, String gender, Date dOB, String degree, int semester, double gpa, String password, String address, int mobile, String EmailID, String sessionid) {
+	public Student(String id, String studentName, String gender, Date dOB, String degree, int semester, double gpa, String password, String address, int mobile, String EmailID, String sessionid) {
 		super();
 		this.id = id;
 		this.studentName = studentName;

@@ -35,7 +35,7 @@ public class StudentController {
 	@GetMapping("/Grades")
 	public String Enrolled(Model model, HttpSession session) {
 		ArrayList<Student> Elist = new ArrayList<Student>();
-		int id = stdrepo.GetidbySessionID(session.getId());
+		String id = stdrepo.GetidbySessionID(session.getId());
 		Elist.add(stdrepo.findxByid(id));
 		model.addAttribute("stdlist", Elist);
 		return "StudentGrades";
@@ -51,7 +51,7 @@ public class StudentController {
 
 	@GetMapping("/Details")
 	public String Studentdetails(Model model, HttpSession session) {
-		int id = stdrepo.GetidbySessionID(session.getId());
+		String id = stdrepo.GetidbySessionID(session.getId());
 		ArrayList<Student> Elist = new ArrayList<Student>();
 		Elist.add(stdrepo.findxByid(id));
 		model.addAttribute("stdlist", Elist);
@@ -59,7 +59,7 @@ public class StudentController {
 	}
 
 	@GetMapping("/edit/{id}")
-	public ModelAndView editStudent(Model model, @PathVariable("id") Integer id) {
+	public ModelAndView editStudent(Model model, @PathVariable("id") String id) {
 		ModelAndView mav = new ModelAndView("StudentParticularsUpdate");
 		Student s = stdrepo.findStudentByid(id);
 		mav.addObject("std", s);
@@ -82,7 +82,7 @@ public class StudentController {
 
 	@PostMapping("/submit")
 	public String SubmitCourse(@ModelAttribute("StudentCourse") StudentCourse StudentCourse, HttpSession session) {
-		int id = stdrepo.GetidbySessionID(session.getId());
+		String id = stdrepo.GetidbySessionID(session.getId());
 		Student s = stdrepo.findStudentByid(id);
 		stdrepo.insertStudentCourse(s.getId(), StudentCourse.getCourseid(), StudentCourse.getCourseName());
 		return "redirect:/student/Home";
