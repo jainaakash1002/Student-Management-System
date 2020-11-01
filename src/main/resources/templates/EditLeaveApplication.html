@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="ISO-8859-1">
+<title>Leave form for STAFF</title>
+</head>
+<body>
+	<div class="w3-container">
+		<div align="center" id="myDiv"
+			style="height: 100px; width: 1400px; background-color: lightblue">
+			<h1>Leave form for STAFF</h1>
+		</div>
+		<div class="w3-bar w3-border w3-light-grey" style="width: 1400px;">
+			<a href="new" class="w3-bar-item w3-button"
+				th:href="@{/Admin/AdminHome}">Administrator Home</a> <a href="new"
+				class="w3-bar-item w3-button" th:href="@{/Admin/listStaff}">Staff
+				Particulars</a> <a href="new" class="w3-bar-item w3-button"
+				th:href="@{/faculty/listStudent}">Student Users</a> <a href="new"
+				class="w3-bar-item w3-button" th:href="@{/faculty/list}">Courses
+			</a> <a href="new" class="w3-bar-item w3-button"
+				th:href="@{/Admin/listDepartment}">Departments</a>  
+					<a href="new" class="w3-bar-item w3-button w3-green w3-right" th:href="@{/Admin/logout}">Logout</a>
+		</div>
+		<div align="center" class="column" id="myDiv"
+			style="height: 800px; width: 1400px;">
+			<form action="#" th:action="@{/Admin/saveLeave}"
+				th:object="${leavedetails}" method="post">
+				<table border="0" cellpadding="10">
+					<tr>
+						<td>Leave Id:</td>
+						<td><input type="text" th:field="*{leaveId}" readonly="readonly" /></td>
+					</tr>
+					<tr>
+						<td>days:</td>
+						<td><input type="text" th:field="*{days}" readonly="readonly" /></td>
+					</tr>
+					<tr>
+						<td>start_date:</td>
+						<td><input type="text" th:field="*{start_date}"
+							readonly="readonly" /></td>
+					</tr>
+					<tr>
+						<td>End_date:</td>
+						<td><input type="text" th:field="*{End_date}"
+							readonly="readonly" /></td>
+					</tr>
+					<tr>
+						<td>description:</td>
+						<td><input type="text" th:field="*{description}"
+							readonly="readonly" /></td>
+					</tr>
+					<tr>
+						<td>Status:</td>
+						<td><input type="text" th:field="*{status}" /></td>
+					</tr>
+					<tr>
+						<td>staff:</td>
+						<td><input type="text" th:field="*{staff.id}"
+							readonly="readonly" /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><button type="submit">Save</button></td>
+					</tr>
+				</table>
+
+			</form>
+		</div>
+
+
+		<div align="center" id="myDiv"
+			style="height: 100px; width: 1400px; background-color: lightblue">
+			<h3>Team 4</h3>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

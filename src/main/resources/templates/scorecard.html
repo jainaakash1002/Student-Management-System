@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="UTF-8">
+<title>Score Card</title>
+</head>
+
+
+<!-- New Commit Design -->
+
+
+<body>
+	<div th:fragment="home" align="left" id="myDiv"
+		style="height: 50px; background-color: lightblue">
+		<h3>Score Cards</h3>
+	</div>
+	<div class="w3-bar w3-border w3-light-grey">
+
+		<a href="AddStudent.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/listStudent}">Student Page</a> <a
+			href="SearchStudents.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/list}">Course Page</a> <a href="Logout.html"
+			class="w3-bar-item w3-hover-green" th:href="@{/faculty/masterlist}">MasterList
+		</a> <a href="Logout.html" style="float: right"
+			class="w3-bar-item w3-button w3-green w3-right"
+			th:href="@{/home}">Log Out</a>
+
+	</div>
+	<div class="container">
+		<div class="container">
+
+			<h2 align="left" th:text="${session.fsession}"
+				style="color: black; font-weight: bold;"></h2>
+		</div>
+		<div class="row">
+			<table class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Name</th>
+						<th>GPA</th>
+						<th>Edit</th>
+					</tr>
+				</thead>
+				<tr th:each="s:${students}">
+					<td th:text=${s.studentName}>Student Name</td>
+					<td th:text=${s.gpa}>Student GPA</td>
+					<td><a href="Edit.html" th:href="@{/faculty/edit/}+${s.id}">
+							Edit </a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

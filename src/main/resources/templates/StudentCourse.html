@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="ISO-8859-1">
+<title>Available Courses</title>
+</head>
+<body>
+    <div class ="w3-container">
+    <div align="center" id="myDiv" style="height:100px;background-color:lightblue">
+	<h1>Available Courses</h1>
+	</div>
+  <div class="w3-bar w3-border w3-light-grey">
+    	<a href="Home" class="w3-bar-item w3-button">Home</a>
+    	<a href="Grades" class="w3-bar-item w3-button">Grades</a>
+    	<a href="Details" class="w3-bar-item w3-button">Student Particulars</a> 
+    	<a href="enrollCourse" class="w3-bar-item w3-button">Enroll course</a>
+    	<a href="logout" class="w3-bar-item w3-button w3-green w3-right">Logout</a> 
+    	</div> 
+    	<!--<div th:insert="~{StudentHome :: Shome}">Home</div>-->
+    	<div align="center" class="column" id="myDiv" style="height:520px;" >
+    	<h3>Available Courses</h3>
+    	<br>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Course ID</th>
+				<th>Course Name</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:each="course: ${listCourse}">
+			<td th:text="${course.courseid}">Course ID</td>
+			<td th:text="${course.courseName}">Course Name</td>
+			<td th:text="${course.startDate}">Start Date</td>
+			<td th:text="${course.endDate}">End Date</td>
+		</tbody>
+	</table>
+</div>
+   <div th:insert="~{home :: copy}">Copy</div>
+	</div>
+</body>
+</html>

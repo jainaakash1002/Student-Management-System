@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="ISO-8859-1">
+<title>Staff Particulars</title>
+</head>
+<body>
+	<div class="w3-container">
+		<div align="center" id="myDiv"
+			style="height: 100px; background-color: lightblue">
+			<h1>Staff Particulars</h1>
+		</div>
+		<div class="w3-bar w3-border w3-light-grey">
+			<a href="new" class="w3-bar-item w3-button"
+				th:href="@{/Admin/AdminHome}">Administrator Home</a> <a href="new"
+				class="w3-bar-item w3-button" th:href="@{/Admin/leaveList}">Leave
+				Management</a> <a href="new" class="w3-bar-item w3-button"
+				th:href="@{/faculty/listStudent}">Student Users</a> <a href="new"
+				class="w3-bar-item w3-button" th:href="@{/faculty/list}">Courses
+			</a> <a href="new" class="w3-bar-item w3-button"
+				th:href="@{/Admin/listDepartment}">Departments</a> <a href="new"
+				class="w3-bar-item w3-button w3-green w3-right"
+				th:href="@{/Admin/logout}">Logout</a>
+		</div>
+		<div align="center" class="column" id="myDiv" style="height: 800px;">
+
+			<table border="1" cellpadding="10">
+				<thead>
+					<tr>
+						<th>Staff ID</th>
+						<th>Name</th>
+						<th>Role</th>
+						<th>Password</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="staff:${staffs}">
+						<td th:text="${staff.id}">Staff ID</td>
+						<td th:text="${staff.name}">Name</td>
+						<td th:text="${staff.role}">Role</td>
+						<td th:text="${staff.password}">Made In</td>
+				</tbody>
+			</table>
+			<a href="new" th:href="@{/Admin/createStaff}">Create New Staff</a>
+
+		</div>
+
+
+		<div align="center" id="myDiv"
+			style="height: 100px; background-color: lightblue">
+			<h3>Team 4</h3>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

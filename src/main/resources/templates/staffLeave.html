@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="ISO-8859-1">
+<title>Leave form for STAFF</title>
+</head>
+<body>
+	<div class="w3-container">
+		<div align="center" id="myDiv"
+			style="height: 100px; background-color: lightblue">
+			<h1>Leave form for STAFF</h1>
+		</div>
+
+		<div class="w3-bar w3-border w3-light-grey">
+			<a href="Masterlist.html" class="w3-bar-item w3-hover-green"
+				th:href="@{/faculty/masterlist}">Masterlist</a> <a href="new"
+				class="w3-bar-item w3-button w3-green w3-right">Logout</a>
+		</div>
+
+		<div class="container">
+			<form th:action="@{/faculty/saveLeave}" th:object="${leave}"
+				method="get">
+				<div class="form-group">
+					<fieldset>
+						<label>leave Id:</label> <input type="text" th:field="*{leaveId}"
+							readonly="readonly" class="form-control" placeholder="ID" />
+
+					</fieldset>
+				</div>
+				<div class="form-group">
+					<fieldset>
+						<label>days:</label> <input type="text" th:field="*{days}"
+							readonly="readonly" class="form-control" placeholder="Days" />
+
+					</fieldset>
+				</div>
+				<div class="form-group">
+					<fieldset>
+						<label>start_date:</label> <input type="text"
+							th:field="*{start_date}" class="form-control"
+							placeholder="Start Date" />
+					</fieldset>
+				</div>
+				<div class="form-group">
+					<fieldset>
+						End_date: <input type="text" th:field="*{End_date}"
+							class="form-control" placeholder="End Date" />
+					</fieldset>
+				</div>
+				<div class="form-group">
+					<fieldset>
+						description: <input type="text" th:field="*{description}"
+							class="form-control" placeholder="Description" />
+					</fieldset>
+				</div>
+				<div class="form-group">
+					<fieldset>
+						<label>Staff Id:</label> <input type="text" th:field="*{staff.id}"
+							class="form-control" placeholder="Staff Id" />
+					</fieldset>
+				</div>
+
+
+
+				<button type="submit" class="btn btn-primary">Save</button>
+
+
+			</form>
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title>Find Students By Course Name</title>
+<body>
+	<div th:fragment="home" align="left" id="myDiv"
+		style="height: 50px; background-color: lightblue">
+		<h3>Find Students By Course Name</h3>
+	</div>
+	<div class="w3-bar w3-border w3-light-grey">
+
+		<a href="Student.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/listStudent}">List of Students</a> <a
+			href="Course.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/list}">List of Courses</a> <a href="Masterlist.html"
+			class="w3-bar-item w3-hover-green" th:href="@{/faculty/masterlist}">Masterlist</a>
+		<a href="Logout.html" style="float: right"
+			class="w3-bar-item w3-button w3-green w3-right"
+			th:href="@{/home}">Log Out</a>
+
+	</div>
+
+	<form th:object="${findStuByCourseName}"
+		th:action="@{/faculty/findStudsByCN}" method="get"
+		class="form-horizontal" id="search-owner-form">
+		<div class="form-group">
+			<div class="control-group" id="lastNameGroup">
+				<label class="col-sm-2 control-label">Course name </label>
+				<div class="col-sm-10">
+
+					<input class="form-control" th:field="*{courseName}" size="30"
+						maxlength="80" /> <span class="help-inline">
+						<div th:if="${#fields.hasAnyErrors()}">
+							<p th:each="err : ${#fields.allErrors()}" th:text="${err}">Error</p>
+						</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Find
+						Students</button>
+				</div>
+			</div>
+	</form>
+</body>
+</html>

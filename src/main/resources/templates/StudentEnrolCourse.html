@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="ISO-8859-1">
+<title>Student Enrol Course</title>
+</head>
+<body>
+    <div class ="w3-container">
+    <div align="center" id="myDiv" style="height:100px;background-color:lightblue">
+	<h1>Student Enrol Course</h1>
+	</div>
+<div class="w3-bar w3-border w3-light-grey">
+    	<a href="Home" class="w3-bar-item w3-button">Home</a>
+    	<a href="Courses" class="w3-bar-item w3-button">Available Courses</a>
+    	<a href="Details" class="w3-bar-item w3-button">Student Particulars</a> 
+    	<a href="logout" class="w3-bar-item w3-button w3-green w3-right">Logout</a> 
+    	</div>
+    	<div align="center" class="column" id="myDiv" style="height:520px;" >
+    	<h3>Course Enrollment</h3>
+	<form action="#" th:action="@{/student/submit}" th:object="${StudentCourse}" method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Course ID:</td>
+					<td><input type="text" th:field="*{course.courseid}"/></td>			
+				</tr>
+				<tr>
+					<td>Course Name:</td>
+					<td><input type="text" th:field="*{courseName}"/></td>				
+				<tr>
+					<td colspan="2"><button type="submit">Submit</button></td>
+				</tr>
+			</table>
+			</form>
+</div>
+ <div th:insert="~{home :: copy}">Copy</div>
+	</div>
+</body>
+</html>

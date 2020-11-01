@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="ISO-8859-1">
+<title>Student Home Page</title>
+</head>
+<body>
+    <div class ="w3-container">
+    <div align="center" id="myDiv" style="height:100px;background-color:lightblue">
+	<h1>Student Home Page</h1>
+	</div>
+<div class="w3-bar w3-border w3-light-grey">
+    	<a href="Grades" class="w3-bar-item w3-button">Grades</a>
+    	<a href="Courses" class="w3-bar-item w3-button">Available Courses</a>
+    	<a href="Details" class="w3-bar-item w3-button">Student Particulars</a> 
+    	<a href="enrollCourse" class="w3-bar-item w3-button">Enroll course</a>
+    	<a href="logout" class="w3-bar-item w3-button w3-green w3-right">Logout</a> 
+    	</div>
+    	<div align="center" class="column" id="myDiv"style="height: 520px"><br>
+		<img src="../static/images/student.png" th:src="@{/images/student.png}" class="w3-border w3-padding" alt="Logo" style="height:450px;width:450px" align="center">
+			</div>
+	<div th:insert="~{home :: copy}">Copy</div>
+	</div>
+	</div>
+</body>
+</html>

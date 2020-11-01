@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title th:utext=#{courses.title}>Administrator's View: Department</title>
+</head>
+<body>
+	<div th:fragment="home" align="center" id="myDiv"
+		style="height: 50px;background-color: lightblue">
+		<h3 >Administrator's View: Department</h3>
+	</div>
+
+
+	<div class="w3-bar w3-border w3-light-grey" >
+		<a href="new" class="w3-bar-item w3-button"
+			th:href="@{/Admin/AdminHome}">Administrator Home</a>
+		<a href="new" class="w3-bar-item w3-button" th:href="@{/Admin/leaveList}">Leave Management</a>
+		<a href="new" class="w3-bar-item w3-button"
+			th:href="@{/Admin/listStaff}"
+			>Staff Particulars</a>
+				<a href="new" class="w3-bar-item w3-button"
+			th:href="@{/faculty/listStudent}"
+			>Student Users</a>
+			<a href="new" class="w3-bar-item w3-button"
+			th:href="@{/faculty/list}"
+			>Courses</a>
+			 	<a href="new" class="w3-bar-item w3-button w3-green w3-right" th:href="@{/Admin/logout}">Logout</a>
+	</div>
+		
+	<table align="center" class="table table-striped" border="1">
+	<thead>
+			<tr>
+				<th>Department ID</th>
+				<th>Department Name</th>
+			</tr>
+		</thead>
+		<tr th:each="d:${department}">
+			<td th:text="${d.id}">Department ID</td>
+			<td th:text="${d.name}">Department Name</td>
+		</tr>
+	</table>
+	<div align="center">
+	    <a href="new" class="w3-bar-item w3-button"
+			th:href="@{/Admin/createDepartment}">Create Department</a>
+	</div>
+	
+	
+</body>
+</html>

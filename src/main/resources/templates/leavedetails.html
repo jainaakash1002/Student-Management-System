@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:fragment="home" align="left" id="myDiv"
+		style="height: 50px; background-color: lightblue">
+		<h3>Leave Details</h3>
+	</div>
+	<div class="w3-bar w3-border w3-light-grey">
+
+		<a href="AddStudent.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/createStudent}">Add Student</a> <a
+			href="SearchStudents.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/student/find}">Search Student</a> <a
+			href="Masterlist.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/masterlist}">Masterlist</a> <a
+			href="Masterlist.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/createLeave}">Add Leave Form</a> 	<a href="new" class="w3-bar-item w3-button w3-green w3-right" th:href="@{/Admin/logout}">Logout</a>
+
+	</div>
+	<div class="container">
+
+		<h2 align="left" th:text="${session.fsession}"
+			style="color: black; font-weight: bold;"></h2>
+		<div class="row">
+			<table align="center" class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Leave End Date</th>
+						<th>Leave Start Date</th>
+						<th>Days</th>
+						<th>Description</th>
+						<th>Edit</th>
+					</tr>
+				</thead>
+				<tr th:each="l : ${leave}">
+					<td th:text="${l.days}"></td>
+					<td th:text="${l.start_date}"></td>
+					<td th:text="${l.End_date}"></td>
+					<td th:text="${l.description}"></td>
+					<td><a href="EditStudent.html"
+						th:href="@{/faculty/editLeave/}+${l.leaveId}"> Edit </a></td>
+					</div>
+			</table>
+
+		</div>
+</body>
+<div th:insert="~{home :: copy}">Copy</div>
+</html>

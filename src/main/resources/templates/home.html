@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+	<!-- <div style="height: 150vh; width: 1800vw;" > -->
+	<div class="w3-container">
+		<div th:fragment="home" align="center" id="myDiv"
+			style="height: 120px; background-color: lightblue">
+			<h2 align="center">Welcome to the Student Management System</h2>
+		</div>
+		<div class="w3-bar w3-border w3-light-grey">
+			<a href="Admin" class="w3-bar-item w3-button"
+				th:href="@{/Adminlogin}">Admin Login</a> <a href="Student"
+				class="w3-bar-item w3-button" th:href="@{/Studentlogin}">Student
+				Login</a> <a href="Faculty" class="w3-bar-item w3-button"
+				th:href="@{/Facultylogin}">Faculty Login</a>
+		</div>
+		<br>
+		<div align="center" class="column" id="myDiv"
+			style="height: 450px;">
+			<img src="../static/images/CAlogo.png" th:src="@{/images/CAlogo.png}"
+				class="w3-border w3-padding" alt="Logo"
+				style="height: 450px; width: 450px" align="center">
+		</div>
+		<div th:fragment="copy" id="myDiv" style="height: 120px;background-color: lightblue">
+		</div>
+	</div>
+	</div>
+</body>
+</html>

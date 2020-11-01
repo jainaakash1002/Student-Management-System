@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:fragment="home" align="left" id="myDiv"
+		style="height: 50px; width: 1400px; background-color: lightblue">
+		<h3>Faculty's Page</h3>
+	</div>
+	<div class="w3-bar w3-border w3-light-grey">
+
+		<a href="Student.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/listStudent}">Student Page</a> <a
+			href="Course.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/list}">Course Page</a> <a href="Masterlist.html"
+			class="w3-bar-item w3-hover-green" th:href="@{/faculty/masterlist}">MasterList</a>
+		<a href="Logout.html" style="float: right"
+			class="w3-bar-item w3-button w3-green w3-right"
+			th:href="@{/home}">Log Out</a>
+
+	</div>
+
+	<div class="container">
+		<form th:object="${student}" th:action="@{/faculty/saveScore}"
+			method="get">
+			<div class="form-group">
+				<fieldset>
+					<label>ID:</label> <input type="text" th:field="*{id}"
+						class="form-control">
+				</fieldset>
+			</div>
+
+			<div class="form-group">
+				<fieldset>
+					<label>Name:</label> <input type="text" th:field="*{studentName}"
+						readonly="readonly" class="form-control">
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label>Gender:</label> <input type="text" th:field="*{gender}"
+						readonly="readonly" class="form-control">
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label> DOB:</label> <input type="text" th:field="*{DOB}"
+						readonly="readonly" class="form-control">
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label>Degree:</label> <input type="text" th:field="*{degree}"
+						readonly="readonly" class="form-control">
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					Semester: <input type="text" th:field="*{semester}"
+						readonly="readonly" class="form-control">
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label>Addresss: </label><input type="text" th:field="*{address}"
+						readonly="readonly" class="form-control">
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label>Email:</label> <input type="text" th:field="*{EmailID}"
+						readonly="readonly" class="form-control">
+				</fieldset>
+			</div>
+			<div class="form-group">
+
+				<label>Mobile:</label>
+				<fieldset>
+					<input type="text" th:field="*{mobile}" readonly="readonly"
+						class="form-control">
+				</fieldset>
+			</div>
+			<div class="form-group">
+
+				<fieldset>
+					<label>GPA</label><input type="text" th:field="*{gpa}"
+						class="form-control" placeholder="gpa">
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+<div th:insert="~{home :: copy}">Copy</div>
+</html>

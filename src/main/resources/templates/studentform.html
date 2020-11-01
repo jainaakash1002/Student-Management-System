@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<meta charset="UTF-8">
+<title>Student Form Page</title>
+</head>
+<body>
+	<div th:fragment="home" align="left" id="myDiv"
+		style="height: 50px; background-color: lightblue">
+		<h3>Student Form</h3>
+	</div>
+	<div class="w3-bar w3-border w3-light-grey">
+
+		<a href="Student.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/listStudent}">List of Students</a> <a
+			href="Course.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/list}">List of Courses</a>
+			 <a href="Masterlist.html"
+			class="w3-bar-item w3-hover-green" th:href="@{/faculty/masterlist}">Masterlist</a> <a href="Logout.html" style="float: right"
+			class="w3-bar-item w3-button w3-green w3-right" th:href="@{/home}">Log Out</a>
+
+	</div>
+	
+	<div class="container">
+		<form th:object="${student}" th:action="@{/faculty/saveEdit}"
+			method="get">
+			<div class="form-group">
+				<fieldset>
+					<label>ID:</label> <input type="text" th:field="*{id}"
+						class="form-control" placeholder="id">
+						<p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label>Name</label> <input type="text" th:field="*{studentName}"
+						class="form-control" placeholder="Name">
+						<p th:if="${#fields.hasErrors('studentName')}" th:errors="*{studentName}"></p>
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label>Gender</label> <input type="text" th:field="*{gender}"
+						class="form-control" placeholder="gender">
+						<p th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></p>
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label>DOB:</label> <input type="text" th:field="*{DOB}" class="form-control"
+						placeholder="date of birth">
+						<p th:if="${#fields.hasErrors('DOB')}" th:errors="*{DOB}"></p>
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label>Degree: </label><input type="text" th:field="*{degree}"
+						class="form-control" placeholder="degree">
+						<p th:if="${#fields.hasErrors('degree')}" th:errors="*{degree}"></p>
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label>Semester:</label> <input type="text" th:field="*{semester}"
+						class="form-control" placeholder="semester">
+						<p th:if="${#fields.hasErrors('semester')}" th:errors="*{semester}"></p>
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+				<label>Address:</label>	 <input type="text" th:field="*{address}"
+						class="form-control" placeholder="address">
+						<p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
+				</fieldset>
+			</div>
+			<div class="form-group">
+
+				<fieldset>
+					<label>Mobile: </label><input type="text" th:field="*{mobile}"
+						class="form-control" placeholder="mobile">
+						<p th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"></p>
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+				<label>GPA:</label>	 <input type="text" th:field="*{gpa}" class="form-control"
+						placeholder="gpa">
+						<p th:if="${#fields.hasErrors('gpa')}" th:errors="*{gpa}"></p>
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label>Password:</label> <input type="text" th:field="*{password}"
+						class="form-control" placeholder="password">
+						<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+				</fieldset>
+			</div>
+			<div class="form-group">
+				<fieldset>
+					<label>Mail</label> <input type="email" th:field="*{EmailID}" class="form-control"
+						placeholder="example@gmail.com">
+						<p th:if="${#fields.hasErrors('EmailID')}" th:errors="*{EmailID}"></p>
+				</fieldset>
+			</div>
+			
+			
+			<div class="form-group">
+			<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+</body>
+<div th:insert="~{home :: copy}">Copy</div>
+</html>

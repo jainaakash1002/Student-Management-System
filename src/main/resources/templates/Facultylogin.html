@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+	<div style="height: 150vh;"  >
+	<div class="w3-container">
+		<div th:fragment="home" align="center" id="myDiv"
+			style="height: 120px; background-color: lightblue">
+			<h2 align="center">Welcome to the Student Management System</h2>
+		</div>
+		<div class="w3-bar w3-border w3-light-grey">
+		<a href="home" class="w3-bar-item w3-button" th:href="@{/home}">Home</a>
+		</div>
+		<div align="center" class="column" id="myDiv"
+			style="height: 800px;">
+			<br><h1>Faculty Login</h1><br>
+			<form th:object="${staff}" th:action="@{/Fauthenticate}"
+				method="post" class="w3-container">
+				<table border="0" cellpadding="10">
+					<tr>
+						<td>Name:</td>
+						<td><input type="text" th:field="${staff.name}"
+							class="w3-input"></td>
+							<td th:if= "${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+					</tr>
+					<tr>
+						<td>Password:</td>
+						<td><input type="password" th:field="${staff.password}"
+							class="w3-input"></td>
+							<td th:if= "${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+					<tr>
+						<td colspan="2"><button type="submit">Submit</button></td>
+					</tr>
+				</table>
+			</form>
+			<div th:fragment="copy" id="myDiv" style="height: 120px;background-color: lightblue">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

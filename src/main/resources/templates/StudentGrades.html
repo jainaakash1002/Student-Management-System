@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="ISO-8859-1">
+<title>Student Grades</title>
+</head>
+<body>
+    <div class ="w3-container">
+    <div align="center" id="myDiv" style="height:100px; background-color:lightblue">
+	<h1>Student Grades</h1>
+	</div>
+<div class="w3-bar w3-border w3-light-grey">
+    	<a href="Home" class="w3-bar-item w3-button">Home</a>
+    	<a href="Courses" class="w3-bar-item w3-button">Available Courses</a>
+    	<a href="Details" class="w3-bar-item w3-button">Student Particulars</a> 
+    	<a href="enrollCourse" class="w3-bar-item w3-button">Enroll course</a>
+    	<a href="logout" class="w3-bar-item w3-button w3-green w3-right">Logout</a> 
+    	</div>
+    	<div align="center" class="column" id="myDiv" style="height:520px;" >
+    	<h2>Student Score Card</h2><br>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Student ID</th>
+				<th>Student Name</th>
+				<th>Semester</th>
+				<th>GPA</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:each="student: ${stdlist}">
+			<td th:text="${student.id}">Student ID</td>
+			<td th:text="${student.studentName}">Student Name</td>
+			<td th:text="${student.semester}">Semester</td>
+			<td th:text="${student.gpa}">GPA</td>
+		</tbody>
+	</table>
+</div>
+<div th:insert="~{home :: copy}">Copy</div>
+	</div>
+	</div>
+</body>
+</html>

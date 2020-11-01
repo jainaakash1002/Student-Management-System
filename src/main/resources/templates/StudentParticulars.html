@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="ISO-8859-1">
+<title>Student Details</title>
+</head>
+<body>
+    <div class ="w3-container">
+    <div align="center" id="myDiv" style="height:100px;background-color:lightblue">
+	<h1>Student Particulars</h1>
+	</div>
+<div class="w3-bar w3-border w3-light-grey">
+    	<a href="Home" class="w3-bar-item w3-button">Home</a>
+    	<a href="Grades" class="w3-bar-item w3-button">Grades</a>
+    	<a href="Details" class="w3-bar-item w3-button">Student Particulars</a> 
+    	<a href="Courses" class="w3-bar-item w3-button">Available Courses</a>
+    	<a href="logout" class="w3-bar-item w3-button w3-green w3-right">Logout</a> 
+    	</div>
+    	<!-- <div th:insert="~{StudentHome :: Shome}">Home</div> -->
+    	<div align="center" class="column" id="myDiv" style="height:520px;" >
+	<h3>Student Details</h3>
+	<table border="1" cellpadding="10">
+			<thead>
+			<tr>
+				<th>Student ID</th>
+				<th>Full Name</th>
+				<th>Date of Birth</th>
+				<th>Gender</th>
+				<th>Degree</th>
+				<th>Contact Number</th>
+				<th>Email ID</th>
+				<th>Address</th>
+			</tr>
+		</thead>
+		<tbody>
+		<tr th:each="s: ${stdlist}">
+			<td th:text="${s.id}">Student ID</td>
+			<td th:text="${s.studentName}">Student Name</td>
+			<td th:text="${s.DOB}">Semester</td>
+			<td th:text="${s.gender}">Gender</td>
+			<td th:text="${s.degree}">Degree</td>
+			<td th:text="${s.mobile}">Mobile</td>
+			<td th:text="${s.EmailID}">Email ID</td>
+			<td th:text="${s.address}">Address</td>
+			</tr>
+		</tbody>
+	</table>
+	<table> 
+	<br>
+	<tr th:each="s: ${stdlist}">
+			<td><a th:href="@{'/student/edit/'+${s.id}}">Click to Update</a></td>
+			</tr>
+	</table>
+</div>
+   <div th:insert="~{home :: copy}">Copy</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="ISO-8859-1">
+<title>Update Student Particulars</title>
+</head>
+<body>
+    <div class ="w3-container">
+    <div align="center" id="myDiv" style="height:100px;background-color:lightblue">
+	<h1>Update Student Particulars</h1>
+	</div>
+<div class="w3-bar w3-border w3-light-grey">
+    	<a href="Home" class="w3-bar-item w3-button">Home</a>
+    	<a href="Grades" class="w3-bar-item w3-button">Grades</a>
+    	<a href="Courses" class="w3-bar-item w3-button">Available Courses</a> 
+    	<a href="Details" class="w3-bar-item w3-button">Student Particulars</a> 
+    	<a href="logout" class="w3-bar-item w3-button w3-green w3-right">Logout</a> 
+    	</div>
+    	<div align="center" class="column" id="myDiv" style="height:520px;" >
+    	<h2>Update Student Details</h2>
+	<form action="#" th:action="@{/student/save}" th:object="${std}" method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Student ID:</td>
+					<td><input type="text" th:field="*{id}" readonly="readonly"/></td>				
+				</tr>
+				<tr>
+					<td>Full Name:</td>
+					<td><input type="text" th:field="*{studentName}" readonly="readonly"/></td>				
+				</tr>
+				<tr>
+					<td>Gender</td>
+					<td><input type="text" th:field="*{gender}"/></td>				
+				</tr>
+				<tr>
+					<td>Degree:</td>
+					<td><input type="text" th:field="*{degree}"/></td>				
+				</tr>
+				<tr>
+					<td>DOB</td>
+					<td><input type="text" th:field="*{DOB}"/></td>				
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="text" th:field="*{password}"/></td>				
+				</tr>
+				<tr>
+					<td>Address:</td>
+					<td><input type="text" th:field="*{address}"/></td>				
+				</tr>
+				<tr>
+					<td>Contact number:</td>
+					<td><input type="text" th:field="*{mobile}"/></td>				
+				</tr>
+				<tr>
+					<td>Email Address:</td>
+					<td><input type="text" th:field="*{EmailID}"/></td>			
+				</tr>
+				
+				<tr>
+					<td colspan="2"><button type="submit">Save</button></td>
+				</tr>
+			</table>
+		
+		</form>
+</div>
+  <div th:insert="~{home :: copy}">Copy</div>
+	</div>
+</body>
+</html>

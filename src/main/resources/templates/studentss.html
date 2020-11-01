@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- New Commit Design -->
+
+	<!-- New Pagination Design -->
+
+
+	<div th:fragment="home" align="left" id="myDiv"
+		style="height: 50px; background-color: lightblue">
+		<h3>Students</h3>
+	</div>
+
+	<div class="w3-bar w3-border w3-light-grey">
+
+		<a href="AddStudent.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/createStudent}">Add Student</a> <a
+			href="SearchStudents.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/student/find}">Search Student</a> <a
+			href="Masterlist.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/masterlist}">Masterlist</a> <a href="Logout.html"
+			style="float: right" class="w3-bar-item w3-button w3-green w3-right"
+			th:href="@{/home}">Log Out</a>
+
+	</div>
+	<div class="container">
+
+		<h2 align="left" th:text="${session.fsession}"
+			style="color: black; font-weight: bold;"></h2>
+
+
+		<div class="row">
+			<table align="center" class="table table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Name</th>
+						<th>Gender</th>
+						<th>DOB</th>
+						<th>Degree</th>
+						<th>Semester</th>
+						<th>Address</th>
+						<th>Mobile</th>
+						<th>GPA</th>
+						<th>Password</th>
+						<th>Mail</th>
+						<th>Edit</th>
+					</tr>
+				</thead>
+				<tr th:each="s : ${students}">
+					<td th:text="${s.studentName}"></td>
+					<td th:text="${s.gender}"></td>
+					<td th:text="${s.DOB}"></td>
+					<td th:text=${s.degree}>Degree</td>
+					<td th:text=${s.semester}>Semester</td>
+					<td th:text=${s.address}>Address</td>
+					<td th:text=${s.mobile}>Mobile</td>
+					<td th:text=${s.gpa}>GPA</td>
+					<td th:text=${s.password}>Password</td>
+					<td th:text=${s.EmailID}>Mail</td>
+					<td><a href="EditStudent.html"
+						th:href="@{/faculty/editStudent/}+${s.id}"> Edit </a></td>
+				</tr>
+			</table>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-1">
+				<select class="form-control pagination" id="pageSizeSelect">
+					<option th:each="pageSize : ${pageSizes}" th:text="${pageSize}"
+						th:value="${pageSize}"
+						th:selected="${pageSize} == ${selectedPageSize}"></option>
+				</select>
+			</div>
+			<div th:if="${students.totalPages != 1}"
+				class="form-group col-md-11 pagination-centered">
+				<ul class="pagination">
+					<li th:class="${students.number == 0} ? disabled"><a
+						class="pageLink"
+						th:href="@{/faculty/listStudent/(pageSize=${selectedPageSize}, page=1)}">&laquo;</a></li>
+					<li th:class="${students.number == 0} ? disabled"><a
+						class="pageLink"
+						th:href="@{/faculty/listStudent/(pageSize=${selectedPageSize}, page=${students.number})}">&larr;</a>
+					</li>
+					<li
+						th:class="${students.number == (page - 1)} ? 'active pointer-disabled'"
+						th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
+						<a class="pageLink"
+						th:href="@{/faculty/listStudent/(pageSize=${selectedPageSize}, page=${page})}"
+						th:text="${page}"></a>
+					</li>
+					<li
+						th:class="${students.number + 1 == students.totalPages} ? disabled">
+						<a class="pageLink"
+						th:href="@{/faculty/listStudent/(pageSize=${selectedPageSize}, page=${students.number + 2})}">&rarr;</a>
+					</li>
+					<li
+						th:class="${students.number + 1 == students.totalPages} ? disabled">
+						<a class="pageLink"
+						th:href="@{/faculty/listStudent/(pageSize=${selectedPageSize}, page=${students.totalPages})}">&raquo;</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+
+
+
+		<script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+		<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/app.js}"></script>
+	</div>
+</body>
+<div th:insert="~{home :: copy}">Copy</div>
+
+</html>

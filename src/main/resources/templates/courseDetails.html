@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+
+	<div th:fragment="home" align="left" id="myDiv"
+		style="height: 50px; background-color: lightblue">
+		<h3>Course Details</h3>
+	</div>
+	<div class="w3-bar w3-border w3-light-grey">
+
+		<a href="Student.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/listStudent}">List of Students</a> <a
+			href="Course.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/list}">List of Courses</a> <a
+			href="Masterlist.html" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/masterlist}">Masterlist</a> <a href="Logout.html"
+			style="float: right" class="w3-bar-item w3-button w3-green w3-right"
+			th:href="@{/home}">Log Out</a>
+
+	</div>
+
+	<h2>Course Information</h2>
+
+	<div class="container">
+
+		<h2 align="left" th:text="${session.fsession}"
+			style="color: black; font-weight: bold;"></h2>
+
+
+		<div class="row">
+
+			<table class="table table-striped" th:object="${course}">
+				<thead class="thead-dark">
+					<tr>
+						<th>Course Name</th>
+						<th>Start Date</th>
+						<th>End Date</th>
+					</tr>
+				</thead>
+				<tr>
+
+					<td><b th:text="*{courseName}"></b></td>
+
+					<td th:text="*{startDate}" /></td>
+
+
+
+					<td th:text="*{endDate}" /></td>
+				</tr>
+
+			</table>
+		</div>
+
+
+
+	</div>
+
+
+
+</body>
+
+</html>

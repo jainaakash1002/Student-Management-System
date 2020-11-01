@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+	<div th:fragment="home" align="left" id="myDiv"
+		style="height: 50px; background-color: lightblue">
+		<h3>Course Information</h3>
+	</div>
+	<div class="w3-bar w3-border w3-light-grey">
+		<a href="Admin" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/list}">List of Courses</a> <a href="Student"
+			class="w3-bar-item w3-hover-green" th:href="@{/faculty/listStudent}">List
+			of Students</a> <a href="Faculty" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/score}">Score Cards</a>
+			<!-- <a href="as" class="w3-bar-item w3-hover-green"
+			th:href="@{/faculty/leavedetails}">Leave Details</a> -->
+			<a href="Logout.html" style="float:right" class="w3-bar-item w3-button w3-green w3-right" th:href="@{/home}">Log Out</a>
+			
+	</div>
+	<table th:object="${course}">
+		<tr>
+			<th>Course Name</th>
+			<td><b th:text="*{courseName}"></b></td>
+		</tr>
+	</table>
+
+	<table class="w3-container" border="1">
+		<tr th:each="s:${studentFindByCourse}">
+			<td th:text=${s.id}>Id</td>
+			<td th:text=${s.studentName}>Name</td>
+			<td th:text=${s.gender}>Gender</td>
+			<td th:text=${s.DOB}>Dob</td>
+			<td th:text=${s.degree}>Degree</td>
+			<td th:text=${s.semester}>Semester</td>
+			<td th:text=${s.address}>Address</td>
+			<td th:text=${s.mobile}>Mobile</td>
+			<td th:text=${s.gpa}>GPA</td>
+		</tr>
+	</table>
+
+
+
+
+	<br />
+	<br />
+	<br />
+
+
+</body>
+
+</html>
