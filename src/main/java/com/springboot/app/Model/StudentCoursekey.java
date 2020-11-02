@@ -12,7 +12,7 @@ public class StudentCoursekey implements Serializable {
 	private String stdid;
 	
 	@Column(name="Course_id")
-	private int courseid;
+	private String courseid;
 
 	public String getStdid() {
 		return stdid;
@@ -22,15 +22,15 @@ public class StudentCoursekey implements Serializable {
 		this.stdid = stdid;
 	}
 
-	public int getCourseid() {
+	public String getCourseid() {
 		return courseid;
 	}
 
-	public void setCourseid(int courseid) {
+	public void setCourseid(String courseid) {
 		this.courseid = courseid;
 	}
 
-	public StudentCoursekey(String stdid, int courseid) {
+	public StudentCoursekey(String stdid, String courseid) {
 		super();
 		this.stdid = stdid;
 		this.courseid = courseid;
@@ -40,7 +40,7 @@ public class StudentCoursekey implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + courseid;
+		result = prime * result + (int) courseid.hashCode();
 		result = prime * result + (int) stdid.hashCode();
 		return result;
 	}

@@ -34,8 +34,15 @@
 	<div class="container">
 
 		<form th:object="${course}" th:action="@{/faculty/save}" method="get">
-
-
+			<div class="form-group">
+				<fieldset>
+					<label>Course ID:</label> <input type="text"
+						th:field="*{courseid}" class="form-control"
+						placeholder="Course ID">
+					<p th:if="${#fields.hasErrors('courseid')}"
+						th:errors="*{courseid}"></p>
+				</fieldset>
+			</div>
 			<div class="form-group">
 				<fieldset>
 					<label>Course Name:</label> <input type="text"

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.springboot.app.Model.*;
 
 @Repository
-public interface FacultyRepository extends JpaRepository<Staff, Integer> {
+public interface FacultyRepository extends JpaRepository<Staff, String> {
 	@Query("select f from Staff f where f.id= :staffId")
 	public Staff findStaffByid(@Param("staffId") String userId);
 

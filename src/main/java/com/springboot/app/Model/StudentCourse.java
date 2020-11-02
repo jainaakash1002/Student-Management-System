@@ -78,7 +78,7 @@ public class StudentCourse implements Serializable {
 		return courseName;
 	}
 	
-	public int getCourseid() {
+	public String getCourseid() {
 		return course.getCourseid();
 	}
 

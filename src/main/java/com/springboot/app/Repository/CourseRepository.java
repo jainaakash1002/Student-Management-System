@@ -14,7 +14,7 @@ import com.springboot.app.Model.*;
 import com.springboot.app.Repository.*;
 
 @Repository
-public interface CourseRepository extends JpaRepository<Course, Integer>{
+public interface CourseRepository extends JpaRepository<Course, String>{
 	
 	public ArrayList<Course> findByCourseName(String courseName);
 	
@@ -31,7 +31,7 @@ public interface CourseRepository extends JpaRepository<Course, Integer>{
 	@Transactional
 	@Modifying
 	@Query("UPDATE Course c SET c.courseid = :cid,c.courseName = :courseName,c.startDate = :startDate,c.endDate=:endDate WHERE c.courseid = :cid")
-	void updateDetails(@Param("cid") int courseid, @Param("courseName") String courseName, @Param("startDate") Date startDate, @Param("endDate") Date endDate);
+	void updateDetails(@Param("cid") String courseid, @Param("courseName") String courseName, @Param("startDate") Date startDate, @Param("endDate") Date endDate);
 
 
 }

@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.springboot.app.Model.*;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Integer> {
+public interface StudentRepository extends JpaRepository<Student, String> {
 
 	// @Modifying(clearAutomatically = true)
 	public ArrayList<Student> findByStudentName(String studentName);
@@ -58,8 +58,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 	@Transactional
 	@Modifying
 	@Query(value = "insert into student_course (student_id,course_id,course_name) values (:stdID, :courseid, :coursename)", nativeQuery = true)
-	void insertStudentCourse(@Param("stdID") String stdID, @Param("courseid") Integer courseid,
-			@Param("coursename") String coursename);
+	void insertStudentCourse(@Param("stdID") String stdID, @Param("courseid") String courseid, @Param("coursename") String coursename);
 	
 	@Query("select s from Student s where s.EmailID= :stdId")
 	public Student findStudentByEmailID(@Param("stdId") String stdId);

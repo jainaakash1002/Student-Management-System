@@ -29,6 +29,10 @@
 				method="post">
 				<table border="0" cellpadding="10">
 					<tr>
+						<td>Staff ID:</td>
+						<td><input type="text" th:field="*{id}" /></td>
+					</tr>
+					<tr>
 						<td>Staff Name:</td>
 						<td><input type="text" th:field="*{name}" /></td>
 					</tr>
@@ -41,7 +45,7 @@
 						<td><input type="password" th:field="*{password}" /></td>
 					</tr>
 					<tr>
-						<td>Department:</td>
+						<td>Department ID:</td>
 						<td><input type="text" th:field="*{departmentName.id}" /></td>
 					</tr>
 					<tr>

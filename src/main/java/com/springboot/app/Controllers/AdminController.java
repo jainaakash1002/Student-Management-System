@@ -94,15 +94,12 @@ public class AdminController {
 		if (bindingResult.hasErrors()) {
 			return "staffform";
 		}
-//		Random r = new Random();
-//		int temp = r.nextInt(9999);
-		String temp = "F9999";
-		facultpo.insertStaff(temp, staff.getName(), staff.getPassword(), staff.getRole(), staff.getDepartmentNameid());
+		facultpo.insertStaff(staff.getId(), staff.getName(), staff.getPassword(), staff.getRole(), staff.getDepartmentNameid());
 		return "redirect:/Admin/listStaff";
 	}
 
 	@GetMapping("/editStaff/{id}")
-	public String editStaff(Model model, @PathVariable("id") Integer id) {
+	public String editStaff(Model model, @PathVariable("id") String id) {
 		Staff staff = facultpo.findById(id).get();
 		facultpo.delete(staff);
 		model.addAttribute("staff", staff);

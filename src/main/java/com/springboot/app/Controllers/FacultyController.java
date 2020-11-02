@@ -140,7 +140,7 @@ public class FacultyController {
 	}
 
 	@GetMapping("/editStudent/{id}")
-	public String editStudent(Model model, @PathVariable("id") Integer id) {
+	public String editStudent(Model model, @PathVariable("id") String id) {
 		Student student = sturepo.findById(id).get();
 		model.addAttribute("student", student);
 		return "studentform";
@@ -148,7 +148,7 @@ public class FacultyController {
 	}
 
 	@GetMapping("/deleteStudent/{id}")
-	public String deleteStudent(Model model, @PathVariable("id") Integer id) {
+	public String deleteStudent(Model model, @PathVariable("id") String id) {
 		Student student = sturepo.findById(id).get();
 		sturepo.delete(student);
 		return "redirect:/faculty/listStudent";
@@ -163,7 +163,7 @@ public class FacultyController {
 	}
 
 	@GetMapping("/edit/{id}")
-	public String editScore(Model model, @PathVariable("id") Integer id) {
+	public String editScore(Model model, @PathVariable("id") String id) {
 		Student student = sturepo.findById(id).get();
 		model.addAttribute("student", student);
 		return "editform";
@@ -248,14 +248,14 @@ public class FacultyController {
 	}
 
 	@GetMapping("/editCourse/{id}")
-	public String showEditForm(Model model, @PathVariable("id") Integer id) {
+	public String showEditForm(Model model, @PathVariable("id") String id) {
 		Course course = prepo.findById(id).get();
 		model.addAttribute("course", course);
 		return "courseform";
 	}
 
 	@GetMapping("/deleteCourse/{id}")
-	public String deleteMethod(Model model, @PathVariable("id") Integer id) {
+	public String deleteMethod(Model model, @PathVariable("id") String id) {
 		Course course = prepo.findById(id).get();
 		prepo.delete(course);
 		return "redirect:/faculty/list";

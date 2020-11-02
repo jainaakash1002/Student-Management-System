@@ -18,7 +18,7 @@ public class Course {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int courseid;
+	private String courseid;
 
 	private String courseName;
 	
@@ -40,7 +40,7 @@ public class Course {
 	private Department departmentName;
 
 
-	public Course(int courseid, String courseName, Date startDate, Date endDate, int units) {
+	public Course(String courseid, String courseName, Date startDate, Date endDate, int units) {
 		super();
 		this.courseid = courseid;
 		this.courseName = courseName;
@@ -55,12 +55,12 @@ public class Course {
 	}
 
 
-	public int getCourseid() {
+	public String getCourseid() {
 		return courseid;
 	}
 
 
-	public void setCourseid(int courseid) {
+	public void setCourseid(String courseid) {
 		this.courseid = courseid;
 	}
 
