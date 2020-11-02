@@ -24,15 +24,15 @@
 				<table border="0" cellpadding="10">
 					<tr>
 						<td>Name:</td>
-						<td><input type="text" th:field="${staff.name}"
+						<td><input type="text" th:field="${staff.id}"
 							class="w3-input"></td>
-							<td th:if= "${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+							<td th:if= "${#fields.hasErrors('id')}" th:errors="*{id}">ID Error</td>
 					</tr>
 					<tr>
 						<td>Password:</td>
 						<td><input type="password" th:field="${staff.password}"
 							class="w3-input"></td>
-							<td th:if= "${#fields.hasErrors('password')}" th:errors="*{password}">ID Error</td>
+							<td th:if= "${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
 					<tr>
 						<td colspan="2"><button type="submit">Submit</button></td>
 					</tr>
