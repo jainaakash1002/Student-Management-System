@@ -85,10 +85,9 @@ public class HomeController {
 			System.out.println("start!");
 			return "Facultylogin";
 		} else {
-			String userId = staff.getName();
+			String userId = staff.getId();
 			String Password = staff.getPassword();
-//			Staff st = Frepo.findStaffByid(userId);
-			Staff st = Frepo.findStaffByname(userId);
+			Staff st = Frepo.findStaffByid(userId);
 			if(st==null) {
 				return "Facultylogin";
 			}

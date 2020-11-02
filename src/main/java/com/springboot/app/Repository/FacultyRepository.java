@@ -18,7 +18,7 @@ public interface FacultyRepository extends JpaRepository<Staff, Integer> {
 	@Transactional
 	@Modifying
 	@Query(value = "insert into staff (id, name,password,role,department_name_id) values ( :SID,:SNAME,:SPASSWORD,:SROLE,:DNAMEiD)", nativeQuery = true)
-	void insertStaff(@Param("SID") Integer SID, @Param("SNAME") String SNAME, @Param("SPASSWORD") String SPASSWORD,
+	void insertStaff(@Param("SID") String SID, @Param("SNAME") String SNAME, @Param("SPASSWORD") String SPASSWORD,
 			@Param("SROLE") Integer SROLE, @Param("DNAMEiD") Integer DNAMEiD);
 	
 	@Query("select s from Staff s where s.name= :stfName")

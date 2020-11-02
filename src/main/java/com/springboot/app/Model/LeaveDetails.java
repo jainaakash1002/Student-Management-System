@@ -36,7 +36,7 @@ public class LeaveDetails {
 	@ManyToOne
 	private Staff staff;
 
-	public int getStaffId() {
+	public String getStaffId() {
 		return staff.getId();
 	}
 

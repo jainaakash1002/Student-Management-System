@@ -9,16 +9,16 @@ import javax.persistence.Embeddable;
 public class StudentCoursekey implements Serializable {
 
 	@Column(name="Student_id")
-	private int stdid;
+	private String stdid;
 	
 	@Column(name="Course_id")
 	private int courseid;
 
-	public int getStdid() {
+	public String getStdid() {
 		return stdid;
 	}
 
-	public void setStdid(int stdid) {
+	public void setStdid(String stdid) {
 		this.stdid = stdid;
 	}
 
@@ -30,7 +30,7 @@ public class StudentCoursekey implements Serializable {
 		this.courseid = courseid;
 	}
 
-	public StudentCoursekey(int stdid, int courseid) {
+	public StudentCoursekey(String stdid, int courseid) {
 		super();
 		this.stdid = stdid;
 		this.courseid = courseid;
@@ -41,7 +41,7 @@ public class StudentCoursekey implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + courseid;
-		result = prime * result + stdid;
+		result = prime * result + (int) stdid.hashCode();
 		return result;
 	}
 

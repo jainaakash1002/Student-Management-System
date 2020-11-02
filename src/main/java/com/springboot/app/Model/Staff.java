@@ -11,9 +11,9 @@ import javax.validation.constraints.Size;
 @Entity
 public class Staff {
 
-	@Id  
-	private int id;
-	@NotEmpty(message = "Enter your name for login")
+	@Id
+	@NotEmpty(message="Please enter ID")
+	private String id;
 	private String name;
 	private int role;
 	@Size(min=2,max=50,message="Please enter password")
@@ -30,7 +30,7 @@ public class Staff {
 		return departmentName.id;
 	}
 
-	public Staff(int id, String name, int role, String password, Department departmentName) {
+	public Staff(String id, String name, int role, String password, Department departmentName) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -47,11 +47,11 @@ public class Staff {
 		this.departmentName = departmentName;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -88,7 +88,7 @@ public class Staff {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
+		result = prime * result + (int) id.hashCode();
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + role;
